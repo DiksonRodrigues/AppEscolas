@@ -1,10 +1,8 @@
 import styled from 'styled-components/native';
 
-
-
 export const Background = styled.View`
   flex: 1;
-  background-color: #F3F781;
+  background-color: #f3f781;
 `;
 
 export const Container = styled.View`
@@ -40,8 +38,3 @@ export const List = styled.FlatList`
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 `;
-  
-
-
-
-

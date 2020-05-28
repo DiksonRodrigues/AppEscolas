@@ -1,66 +1,66 @@
 import styled from 'styled-components/native';
+import { Picker } from '@react-native-community/picker';
 
-
-
- /*export const Background = styled.View`
+/* export const Background = styled.View`
  flex:1;
  align-items: flex-end;
  background-color: #f0f0f0;
  align-items: center;
- `;*/
+ `; */
 
 export const Container = styled.KeyboardAvoidingView`
-flex:1;
-align-items: center;
-justify-content: center;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ContainerAvatar = styled.View`
-align-items: flex-end;
-justify-content: center;
-padding-top: 15px;
-padding: 15px;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 30px 15px 15px 15px;
 `;
 
 export const ContainerImage = styled.TouchableOpacity`
-align-items: center;
-justify-content: center;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const AvatarText = styled.Text`
-/*background-color: #fff;*/
-/*padding: 52.2px 20px 50px 10px;*/
-/*border-radius: 1px;
+  /*background-color: #fff;*/
+  /*padding: 52.2px 20px 50px 10px;*/
+  /*border-radius: 1px;
 font-weight: bold;
 font-size: 15px;
 padding-left: 40px;
 padding-right: 40px;*/
-align-items: center;
-justify-content: center;
-font-size: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
 `;
 
 export const AvatarImage = styled.Image`
-width: 170px;
-height: 170px;
-border-radius: 170px;
+  width: 170px;
+  height: 170px;
+  border-radius: 170px;
 `;
 
 export const AreaInput = styled.View`
-justify-content: center;
-align-items:center;
-width: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
 
-export const Input = styled.TextInput`
-opacity: 0.5;
-background: #f0f0f0;
-width: 90%;
-font-size: 18px;
-color: #000;
-margin-bottom: 8px;
-padding: 10px;
-border-radius: 15px;
+export const Input = styled.TextInput.attrs({
+  placeholderTextColor: '#000',
+})`
+  opacity: 0.5;
+  background: #f0f0f0;
+  width: 90%;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 15px;
 `;
 
 export const SubmitButtom = styled.TouchableOpacity`
@@ -73,11 +73,21 @@ export const SubmitButtom = styled.TouchableOpacity`
 `;
 
 export const SubmitText = styled.Text`
-font-weight: bold;
-font-size: 18px;
-color: #f0f0f0;
-
+  font-weight: bold;
+  font-size: 18px;
+  color: #f0f0f0;
 `;
 
+export const CustomPickerArea = styled.View`
+  justify-content: center;
+  width: 90%;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+`;
 
-
+export const CustomPicker = styled(Picker)`
+  color: rgba(0, 0, 0, 0.8);
+  margin-left: 5px;
+  font-weight: bold;
+`;
