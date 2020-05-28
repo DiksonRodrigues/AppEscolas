@@ -41,6 +41,7 @@ export default function SignUp() {
 
   function handleSignUp() {
     signUp(email, senha, nome, nomeMae, serie, turno);
+    console.log('Mudança Master');
   }
 
   return (
