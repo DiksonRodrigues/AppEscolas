@@ -40,7 +40,7 @@ export default function SignUp() {
   const { signUp } = useContext(AuthContext);
 
   function handleSignUp() {
-    signUp(email, senha, nome, nomeMae, serie, turno);
+    signUp(email, senha, nome, nomeMae, serie, turno, avatar);
   }
 
   return (
