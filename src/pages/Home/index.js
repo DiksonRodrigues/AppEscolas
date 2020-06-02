@@ -1,29 +1,47 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, Button, FlatList } from 'react-native';
+
+import { Image } from 'react-native';
 
 import { AuthContext } from '../../contexts/auth';
+
 import Header from '../../components/Header';
+
 import NovasAulasList from '../../components/NovasAulasList';
 
 import { Background, Container, Nome, SerieTurno, Title, List } from './styles';
 
 export default function Home() {
-  const [novasaulas, setNovasAulas] = useState([
+  // Aqui eke da erro pq não está sendo usado
+  // Set novas aulas faltando adicionar depois
+  const [novasaulas] = useState([
     { key: '1', tipo: 'Aula', valor: 'Matematica' },
+
     { key: '2', tipo: 'Aula', valor: 'Portugues' },
+
     { key: '3', tipo: 'Aula', valor: 'Ingles' },
+
     { key: '4', tipo: 'Aula', valor: 'Historia' },
+
     { key: '5', tipo: 'Aula', valor: 'Quimica' },
   ]);
 
-  const { user } = useContext(AuthContext);
+  const {
+    user: { nome, serie, avatar },
+  } = useContext(AuthContext);
 
   return (
     <Background>
       <Header />
+
       <Container>
-        <Nome>{user && user.nome}</Nome>
-        <SerieTurno>{user && user.serie}</SerieTurno>
+        <Nome>{nome}</Nome>
+
+        <SerieTurno>{serie}</SerieTurno>
+
+        <Image
+          source={{ uri: avatar }}
+          style={{ width: 50, height: 200, resizeMode: 'contain' }}
+        />
       </Container>
 
       <Title>Novas Aulas</Title>

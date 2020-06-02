@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-alert */
 import React, { useState, useContext } from 'react';
 import {
   Platform,
@@ -40,7 +42,11 @@ export default function SignUp() {
   const { signUp } = useContext(AuthContext);
 
   function handleSignUp() {
-    signUp(email, senha, nome, nomeMae, serie, turno, avatar);
+    if (serie == null) {
+      alert('Falta Selecionar a série');
+    } else {
+      signUp(email, senha, nome, nomeMae, serie, turno, avatar); // Passei o avatar por aqui
+    }
   }
 
   return (
@@ -85,13 +91,15 @@ export default function SignUp() {
             </AreaInput>
 
             <AreaInput>
-              <Input
-                placeholder="Série e Turma"
-                autCorrect={false}
-                autoCapitalize="none"
-                value={serie}
-                onChangeText={setSerie}
-              />
+              <CustomPickerArea>
+                <CustomPicker
+                  selectedValue={serie}
+                  onValueChange={(itemValue) => setSerie(itemValue)}
+                >
+                  <Picker.Item label="Escolha sua série e turma" value={null} />
+                  <Picker.Item label="7ª série turma A" value="7A" />
+                </CustomPicker>
+              </CustomPickerArea>
             </AreaInput>
 
             <AreaInput>

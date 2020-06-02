@@ -2,11 +2,7 @@ module.exports = {
   env: {
     es6: true,
   },
-  extends: [
-    'airbnb',
-    'prettier',
-    'prettier/react',
-  ],
+  extends: ['airbnb', 'prettier', 'prettier/react'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -35,7 +31,7 @@ module.exports = {
     'react-native/no-raw-text': 'off',
     'no-underscore-dangle': 'off',
     camelcase: 'off',
-    'no-console': ['error', {allow: ['log']}],
+    'no-console': ['error', { allow: ['log'] }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-param-reassign': 'off',

@@ -1,68 +1,67 @@
-import React, {useState, useContext}from 'react';
-import { View, Text, Platform, Keyboard, TouchableWithoutFeedback} from 'react-native';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState, useContext } from 'react';
+import { Platform, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../../contexts/auth';
-import Background from '../../components/Background'
+import Background from '../../components/Background';
 
-import { Container, Logo, AreaInput, Input,
-SubmitButtom, SubmitText, Link, LinkText } from './styles';
+import {
+  Container,
+  Logo,
+  AreaInput,
+  Input,
+  SubmitButtom,
+  SubmitText,
+  Link,
+  LinkText,
+} from './styles';
 
 export default function SignIn() {
+  const { navigate } = useNavigation();
 
-  const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
-  const [email, setEmail ] = useState('');
-  const [senha, setSenha ] = useState('');
-  
-  const { signIn } = useContext(AuthContext)
+  const { signIn } = useContext(AuthContext);
 
-  function handleSignIn(){
-     signIn(email, senha)  
+  function handleSignIn() {
+    signIn(email, senha);
   }
 
- return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss() }>
-   <Background>
-     <Container
-     behaviar={Platform.OS === 'ios' ? 'padding' : '' }
-     enabled
-     >
-       <Logo source={require('../../assets/escola2.png')}/>
+  return (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <Background>
+        <Container behaviar={Platform.OS === 'ios' ? 'padding' : ''} enabled>
+          <Logo source={require('../../assets/escola2.png')} />
+          <AreaInput>
+            <Input
+              placeholder="E-mail"
+              autCorrect={false}
+              autoCapitalize="none"
+              value={email}
+              onChangeText={setEmail}
+              placeholderTextColor="#000"
+            />
+          </AreaInput>
+          <AreaInput>
+            <Input
+              placeholder="Senha"
+              autCorrect={false}
+              autoCapitalize="none"
+              value={senha}
+              onChangeText={setSenha}
+              placeholderTextColor="#000"
+            />
+          </AreaInput>
+          <SubmitButtom onPress={handleSignIn}>
+            <SubmitText>Acessar</SubmitText>
+          </SubmitButtom>
 
-       <AreaInput>
-        <Input
-          placeholder='E-mail'
-          autCorrect={false}
-          autoCapitalize="none"
-          value={email}
-          onChangeText={setEmail}
-          placeholderTextColor='#000'
-        />
-       </AreaInput>
-       
-       <AreaInput>
-        <Input
-          placeholder='Senha'
-          autCorrect={false}
-          autoCapitalize="none"
-          value={senha}
-          onChangeText={setSenha}
-          placeholderTextColor='#000'
-        />
-       </AreaInput>
-     
-       <SubmitButtom onPress={handleSignIn}>
-         <SubmitText>Acessar</SubmitText>
-       </SubmitButtom>
-
-       
-
-       <Link onPress={() => navigation.navigate('SignUp')}>
-         <LinkText>Não tem conta ainda ? Registre-se</LinkText>
-       </Link>
-
-     </Container>
-   </Background>
-   </TouchableWithoutFeedback>
+          <Link onPress={() => navigate('SignUp')}>
+            <LinkText>Não tem conta ainda ? Registre-se</LinkText>
+          </Link>
+        </Container>
+      </Background>
+    </TouchableWithoutFeedback>
   );
 }
