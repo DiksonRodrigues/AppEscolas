@@ -42,10 +42,11 @@ export default function SignUp() {
   const { signUp } = useContext(AuthContext);
 
   function handleSignUp() {
-    if (serie == null) {
-      alert('Falta Selecionar a série');
+    if (serie === null) {
+      alert('Esqueceu de selecionar a série');
     } else {
-      signUp(email, senha, nome, nomeMae, serie, turno, avatar); // Passei o avatar por aqui
+      signUp(email, senha, nome, nomeMae, serie, turno, avatar); // Passei
+      // o avatar por aqui
     }
   }
 

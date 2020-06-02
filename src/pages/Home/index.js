@@ -40,7 +40,7 @@ export default function Home() {
 
         <Image
           source={{ uri: avatar }}
-          style={{ width: 50, height: 200, resizeMode: 'contain' }}
+          style={{ width: 200, height: 200, resizeMode: 'contain' }}
         />
       </Container>
 

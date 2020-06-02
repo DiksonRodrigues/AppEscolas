@@ -10,7 +10,7 @@ window.Blob = RNFetchBlob.polyfill.Blob;
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   // Aqui é pq não tá usando o setLoading... Tenta executar o app
-  const [loading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadStorage() {
