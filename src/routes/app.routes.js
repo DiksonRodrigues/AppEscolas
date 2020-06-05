@@ -1,6 +1,8 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
+import DrawerCustom from './components/drawer.custom';
+
 import Home from '../pages/Home';
 import New from '../pages/New';
 import Perfil from '../pages/perfil';
@@ -13,6 +15,7 @@ function AppRoutes() {
       drawerStyle={{
         backgroundColor: '#FACC2E',
       }}
+      drawerContent={(props) => <DrawerCustom {...props} />}
       drawerContentOptions={{
         labelStyle: {
           fontWeight: 'bold',

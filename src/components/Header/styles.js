@@ -1,10 +1,9 @@
 import styled from 'styled-components/native';
 
- 
 export const Container = styled.View`
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 15px;
+  margin-top: 30px;
   margin-left: 15px;
   margin-bottom: 15px;
   width: 100%;
@@ -12,6 +11,6 @@ export const Container = styled.View`
 `;
 
 export const ButtonMenu = styled.TouchableWithoutFeedback`
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
 `;

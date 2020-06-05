@@ -10,18 +10,19 @@ export const Container = styled.View`
   margin-bottom: 25px;
 `;
 
+export const ContainerAulas = styled.View`
+  flex: 1;
+  padding-top: 15px;
+  background-color: #f0f0f0;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+`;
+
 export const Nome = styled.Text`
   font-size: 40px;
   color: #000;
   font-style: italic;
   font-weight: bold;
-`;
-
-export const SerieTurno = styled.Text`
-  margin-top: 5px;
-  font-size: 15px;
-  color: #000;
-  font-style: italic;
 `;
 
 export const Title = styled.Text`
@@ -32,9 +33,4 @@ export const Title = styled.Text`
   font-size: 25px;
 `;
 
-export const List = styled.FlatList`
-  padding-top: 15px;
-  background-color: #f0f0f0;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-`;
+export const List = styled.FlatList``;
