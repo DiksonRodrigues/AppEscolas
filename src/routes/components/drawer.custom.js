@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unused-state, react/destructuring-assignment, react/forbid-prop-types, react/require-default-props */
 import React, { useContext } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import { DrawerActions } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 import styled from 'styled-components/native/dist/styled-components.native.esm';
@@ -49,8 +49,13 @@ export default ({ navigation: { navigate, dispatch } }) => {
               </NavigatorText>
             </NavigatorItem>
             <NavigatorItem>
-              <NavigatorText onPress={() => navigateToScreen('Avisos')}>
-                Avisos
+              <NavigatorText onPress={() => navigateToScreen('Boletim')}>
+                Boletim
+              </NavigatorText>
+            </NavigatorItem>
+            <NavigatorItem>
+              <NavigatorText onPress={() => navigateToScreen('Calendario')}>
+                Calendário
               </NavigatorText>
             </NavigatorItem>
             <NavigatorItem>

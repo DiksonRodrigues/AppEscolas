@@ -41,7 +41,7 @@ export const Nome = styled.Text``;
 export const HeaderContainer = styled.View`
   position: absolute;
   z-index: 5;
-  top: -20px;
+  top: 0;
   left: 0;
 `;
 
@@ -49,7 +49,7 @@ export const AreaInput = styled.View`
   flex-direction: row;
 `;
 export const Input = styled.TextInput`
-  border: 10px solid #ffef52;
+  border: 3px solid #ffef52;
   padding-left: 20px;
   padding-right: 20px;
   background: #f0f0f0;

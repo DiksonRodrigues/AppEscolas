@@ -4,7 +4,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import DrawerCustom from './components/drawer.custom';
 
 import Home from '../pages/Home';
-import New from '../pages/New';
+import Boletim from '~/pages/Boletim';
+import Calendario from '~/pages/Calendario';
 import Perfil from '../pages/perfil';
 
 const AppDrawer = createDrawerNavigator();
@@ -31,7 +32,8 @@ function AppRoutes() {
       }}
     >
       <AppDrawer.Screen name="Home" component={Home} />
-      <AppDrawer.Screen name="Avisos" component={New} />
+      <AppDrawer.Screen name="Boletim" component={Boletim} />
+      <AppDrawer.Screen name="Calendario" component={Calendario} />
       <AppDrawer.Screen name="Perfil" component={Perfil} />
     </AppDrawer.Navigator>
   );
