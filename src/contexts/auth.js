@@ -44,6 +44,8 @@ function AuthProvider({ children }) {
               uid,
               nome: snapshot.val().nome,
               avatar: snapshot.val().avatar,
+              serie: snapshot.val().serie,
+              nomeMae: snapshot.val().nomeMae,
               email: value.user.email,
             };
             setUser(data);
@@ -140,9 +142,30 @@ function AuthProvider({ children }) {
       setUser(null);
     });
   }
+
+  async function forgotPassword(email) {
+    await firebase
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        console.log('enviado');
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, loading, signUp, signIn, signOut }}
+      value={{
+        signed: !!user,
+        user,
+        loading,
+        signUp,
+        signIn,
+        forgotPassword,
+        signOut,
+      }}
     >
       {children}
     </AuthContext.Provider>

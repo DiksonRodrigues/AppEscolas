@@ -14,6 +14,7 @@ export default ({ navigation: { navigate, dispatch } }) => {
   };
   const {
     user: { avatar, nome, serie },
+    signOut,
   } = useContext(AuthContext);
 
   let firstName;
@@ -54,16 +55,35 @@ export default ({ navigation: { navigate, dispatch } }) => {
             </NavigatorItem>
             <NavigatorItem>
               <NavigatorText onPress={() => navigateToScreen('Perfil')}>
-                Perfil
+                Editar Perfil
               </NavigatorText>
             </NavigatorItem>
           </NavigatorsContainer>
+
+          <Logout onPress={() => signOut()}>
+            <LogoutText>Sair</LogoutText>
+          </Logout>
         </ScrollView>
       </Container>
     </>
   );
 };
 
+const LogoutText = styled.Text`
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+`;
+const Logout = styled.TouchableOpacity`
+  margin-left: 15px;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff0000;
+  width: 90%;
+  height: 45px;
+  border-radius: 10px;
+`;
 const Container = styled.View`
   flex: 1;
 `;

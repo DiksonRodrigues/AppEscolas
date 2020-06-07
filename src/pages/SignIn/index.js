@@ -58,7 +58,11 @@ export default function SignIn() {
           </SubmitButtom>
 
           <Link onPress={() => navigate('SignUp')}>
-            <LinkText>Não tem conta ainda ? Registre-se</LinkText>
+            <LinkText>Não tem conta ainda? Registre-se</LinkText>
+          </Link>
+
+          <Link onPress={() => navigate('ForgotPassword')}>
+            <LinkText>Esqueceu sua senha?</LinkText>
           </Link>
         </Container>
       </Background>

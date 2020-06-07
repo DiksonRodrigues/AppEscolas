@@ -12,6 +12,7 @@ const AppDrawer = createDrawerNavigator();
 function AppRoutes() {
   return (
     <AppDrawer.Navigator
+      initialRouteName="Perfil"
       drawerStyle={{
         backgroundColor: '#FACC2E',
       }}
