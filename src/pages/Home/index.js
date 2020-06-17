@@ -18,8 +18,7 @@ export default function Home() {
       key: '1',
       tipo: 'Aula',
       valor: 'Matematica',
-      url:
-        'https://firebasestorage.googleapis.com/v0/b/appescolas-cd5af.appspot.com/o/aulasFraces%2FAula%20de%20Franc%C3%AAs%20.mp4?alt=media&token=9242ff82-00c8-4ce1-9641-2bf6b81d42e7',
+      url: 'https://www.youtube.com/watch?v=GFuM-L3X0Uk',
     },
 
     { key: '2', tipo: 'Aula', valor: 'Portugues' },
