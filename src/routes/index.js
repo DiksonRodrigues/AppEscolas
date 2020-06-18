@@ -7,7 +7,7 @@ import AppRoutesT from './app.routes.teacher';
 import AppRoutes from './app.routes';
 
 export default () => {
-  const { signed, loading, haveTeacher } = useContext(AuthContext);
+  const { signed, loading, user } = useContext(AuthContext);
 
   if (loading) {
     return (
@@ -18,7 +18,7 @@ export default () => {
   }
 
   if (signed) {
-    if (haveTeacher) {
+    if (user.teacher) {
       return <AppRoutesT />;
     }
     return <AppRoutes />;

@@ -21,9 +21,6 @@ const AppRoutes = () => (
           case 'Home':
             imgName = 'home';
             break;
-          case 'Chamada':
-            imgName = 'bullhorn';
-            break;
           case 'Boletim':
             imgName = 'clipboard';
             break;

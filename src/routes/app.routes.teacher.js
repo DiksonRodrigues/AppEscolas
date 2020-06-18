@@ -75,6 +75,7 @@ const DrawerRoutes = () => (
     }}
   >
     <AppBottom.Screen name="AppRoutes" component={AppRoutes} />
+    <AppDrawer.Screen name="Chamada" component={Chamada} />
     <AppDrawer.Screen name="Perfil" component={Perfil} />
   </AppDrawer.Navigator>
 );

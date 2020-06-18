@@ -49,6 +49,7 @@ function AuthProvider({ children }) {
               serie: snapshot.val().serie,
               nomeMae: snapshot.val().nomeMae,
               email: value.user.email,
+              teacher: snapshot.val().teacher,
             };
             setUser(data);
             storageUser(data);
@@ -68,21 +69,13 @@ function AuthProvider({ children }) {
     serie,
     turno,
     image,
+    telefone,
     teacher
   ) {
     await firebase
       .auth()
       .createUserWithEmailAndPassword(email, senha)
       .then(() => {
-        console.log(email);
-        console.log(senha);
-        console.log(nome);
-        console.log(nomeMae);
-        console.log(serie);
-        console.log(turno);
-        console.log(image);
-        console.log(teacher);
-
         const { uid } = firebase.auth().currentUser;
 
         // Isso é só para remover o file:// que aparece quando pega a url no image picker
@@ -123,11 +116,11 @@ function AuthProvider({ children }) {
               () => {
                 // Aqui ele pega a url de download para salvar dentro do usuário e ser mais fácil de pegar quando o usuário logar
                 avatar.getDownloadURL().then((url) => {
-                  firebase.database().ref(serie).child(turno).set({
-                    nome,
-                  });
-
                   if (teacher === false) {
+                    firebase.database().ref(serie).child(turno).set({
+                      nome,
+                    });
+
                     firebase
                       .database()
                       .ref('users')
@@ -138,6 +131,7 @@ function AuthProvider({ children }) {
                         serie,
                         turno,
                         avatar: url,
+                        teacher,
                       })
                       .then(() => {
                         const data = {
@@ -148,6 +142,7 @@ function AuthProvider({ children }) {
                           serie,
                           turno,
                           avatar: url,
+                          teacher,
                         };
                         setHaveTeacher(false);
                         setUser(data);
@@ -161,6 +156,7 @@ function AuthProvider({ children }) {
                       .set({
                         nome,
                         avatar: url,
+                        teacher,
                       })
                       .then(() => {
                         const data = {
@@ -168,6 +164,7 @@ function AuthProvider({ children }) {
                           nome,
                           telefone,
                           avatar: url,
+                          teacher,
                         };
                         setUser(data);
                         storageUser(data);
@@ -207,7 +204,6 @@ function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         signed: !!user,
-        haveTeacher,
         user,
         loading,
         signUp,

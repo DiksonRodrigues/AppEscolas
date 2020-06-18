@@ -9,7 +9,7 @@ export default function Chamada() {
     <>
       <Header />
       <Container>
-        <Text>Chamado</Text>
+        <Text>Chamada</Text>
       </Container>
     </>
   );

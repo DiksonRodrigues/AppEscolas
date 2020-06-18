@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { StatusBar } from 'react-native';
-import AnimatedLinearGradient from 'react-native-animated-linear-gradient';
+// import AnimatedLinearGradient from 'react-native-animated-linear-gradient';
 
 import { AuthContext } from '~/contexts/auth';
 
@@ -37,25 +37,25 @@ export default function Home() {
   return (
     <Background>
       <StatusBar backgroundColor="transparent" translucent />
-      <AnimatedLinearGradient
-        customColors={['#f3f781', '#FACC2E', '#f3f781']}
-        speed={800}
-      >
-        <Header />
+      {/*<AnimatedLinearGradient*/}
+      {/*  customColors={['#f3f781', '#FACC2E', '#f3f781']}*/}
+      {/*  speed={800}*/}
+      {/*>*/}
+      <Header />
 
-        <Title>Novas Aulas</Title>
+      <Title>Novas Aulas</Title>
 
-        <ContainerAulas>
-          <List
-            horizontal
-            showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false}
-            data={novasaulas}
-            keyExtractor={(item) => item.key}
-            renderItem={({ item }) => <NovasAulasList data={item} />}
-          />
-        </ContainerAulas>
-      </AnimatedLinearGradient>
+      <ContainerAulas>
+        <List
+          horizontal
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          data={novasaulas}
+          keyExtractor={(item) => item.key}
+          renderItem={({ item }) => <NovasAulasList data={item} />}
+        />
+      </ContainerAulas>
+      {/* </AnimatedLinearGradient> */}
     </Background>
   );
 }

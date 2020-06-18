@@ -13,7 +13,7 @@ export default ({ navigation: { navigate, dispatch } }) => {
     dispatch(DrawerActions.closeDrawer());
   };
   const {
-    user: { avatar, nome, serie },
+    user: { avatar, nome, serie, teacher },
     signOut,
   } = useContext(AuthContext);
 
@@ -38,8 +38,10 @@ export default ({ navigation: { navigate, dispatch } }) => {
         <ScrollView>
           <ContainerAvatar>
             <AvatarImage source={{ uri: avatar }} />
-            <UserNameText>Nome: {firstName}</UserNameText>
-            <UserNameText>Série: {serie}</UserNameText>
+            <UserNameText>
+              {!teacher ? `Nome: ${firstName}` : `Prof: ${firstName}`}
+            </UserNameText>
+            {!teacher && <UserNameText>Série: {serie}</UserNameText>}
           </ContainerAvatar>
 
           <NavigatorsContainer>
@@ -48,11 +50,13 @@ export default ({ navigation: { navigate, dispatch } }) => {
                 Novas Aulas
               </NavigatorText>
             </NavigatorItem>
-            <NavigatorItem>
-              <NavigatorText onPress={() => navigateToScreen('Chamada')}>
-                Chamada
-              </NavigatorText>
-            </NavigatorItem>
+            {teacher && (
+              <NavigatorItem>
+                <NavigatorText onPress={() => navigateToScreen('Chamada')}>
+                  Chamada
+                </NavigatorText>
+              </NavigatorItem>
+            )}
             <NavigatorItem>
               <NavigatorText onPress={() => navigateToScreen('Boletim')}>
                 Boletim
