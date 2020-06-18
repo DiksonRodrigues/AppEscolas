@@ -17,7 +17,7 @@ export const Container = styled.KeyboardAvoidingView`
 export const ContainerAvatar = styled.View`
   align-items: flex-end;
   justify-content: center;
-  padding: 30px 15px 15px 15px;
+  padding: 10px 15px 15px 15px;
 `;
 
 export const ContainerImage = styled.TouchableOpacity`
@@ -26,16 +26,9 @@ export const ContainerImage = styled.TouchableOpacity`
 `;
 
 export const AvatarText = styled.Text`
-  /*background-color: #fff;*/
-  /*padding: 52.2px 20px 50px 10px;*/
-  /*border-radius: 1px;
-font-weight: bold;
-font-size: 15px;
-padding-left: 40px;
-padding-right: 40px;*/
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 12px;
 `;
 
 export const AvatarImage = styled.Image`
@@ -48,6 +41,14 @@ export const AreaInput = styled.View`
   justify-content: center;
   align-items: center;
   width: 100%;
+`;
+
+export const AreaInputSwitch = styled.View`
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 5px 0;
+  flex-direction: row;
 `;
 
 export const Input = styled.TextInput.attrs({

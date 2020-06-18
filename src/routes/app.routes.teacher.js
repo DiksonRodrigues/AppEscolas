@@ -9,6 +9,7 @@ import Home from '../pages/Home';
 import Boletim from '~/pages/Boletim';
 import Calendar from '~/pages/Calendario';
 import Perfil from '../pages/perfil';
+import Chamada from '../pages/Chamada';
 
 const AppBottom = createBottomTabNavigator();
 
@@ -44,6 +45,7 @@ const AppRoutes = () => (
     }}
   >
     <AppBottom.Screen name="Home" component={Home} />
+    <AppBottom.Screen name="Chamada" component={Chamada} />
     <AppBottom.Screen name="Boletim" component={Boletim} />
     <AppBottom.Screen name="Calendario" component={Calendar} />
   </AppBottom.Navigator>

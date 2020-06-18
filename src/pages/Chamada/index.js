@@ -1,13 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 
 import Header from '../../components/Header';
+import { Container } from './styles';
 
 export default function Chamada() {
   return (
-    <View>
+    <>
       <Header />
-      <Text>Chamada</Text>
-    </View>
+      <Container>
+        <Text>Chamado</Text>
+      </Container>
+    </>
   );
 }

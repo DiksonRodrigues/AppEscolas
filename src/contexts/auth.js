@@ -12,6 +12,8 @@ function AuthProvider({ children }) {
   // Aqui é pq não tá usando o setLoading... Tenta executar o app
   const [loading, setLoading] = useState(false);
 
+  const [haveTeacher, setHaveTeacher] = useState(false);
+
   useEffect(() => {
     async function loadStorage() {
       // const storageUser = await AsyncStorage.getItem('Auth_user');
@@ -58,7 +60,16 @@ function AuthProvider({ children }) {
   }
 
   // Função para Cadastrar usuario
-  async function signUp(email, senha, nome, nomeMae, serie, turno, image) {
+  async function signUp(
+    email,
+    senha,
+    nome,
+    nomeMae,
+    serie,
+    turno,
+    image,
+    teacher
+  ) {
     await firebase
       .auth()
       .createUserWithEmailAndPassword(email, senha)
@@ -102,30 +113,60 @@ function AuthProvider({ children }) {
                     nome,
                   });
 
-                  firebase
-                    .database()
-                    .ref('users')
-                    .child(uid)
-                    .set({
-                      nome,
-                      nomeMae,
-                      serie,
-                      turno,
-                      avatar: url,
-                    })
-                    .then(() => {
-                      const data = {
-                        uid,
+                  if (teacher === false) {
+                    firebase
+                      .database()
+                      .ref('users')
+                      .child(uid)
+                      .set({
                         nome,
-                        email,
                         nomeMae,
                         serie,
                         turno,
                         avatar: url,
-                      };
-                      setUser(data);
-                      storageUser(data);
-                    });
+                      })
+                      .then(() => {
+                        const data = {
+                          uid,
+                          nome,
+                          email,
+                          nomeMae,
+                          serie,
+                          turno,
+                          avatar: url,
+                        };
+                        setHaveTeacher(false);
+                        setUser(data);
+                        storageUser(data);
+                      });
+                  } else {
+                    setHaveTeacher(teacher);
+                    firebase
+                      .database()
+                      .ref('users')
+                      .child(uid)
+                      .set({
+                        nome,
+                        nomeMae,
+                        serie,
+                        turno,
+                        avatar: url,
+                      })
+                      .then(() => {
+                        const data = {
+                          uid,
+                          nome,
+                          email,
+                          nomeMae,
+                          serie,
+                          turno,
+                          avatar: url,
+                        };
+                        setUser(data);
+                        storageUser(data);
+                        setHaveTeacher(teacher);
+                      });
+                  }
                 });
               }
             );
@@ -159,6 +200,7 @@ function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         signed: !!user,
+        haveTeacher,
         user,
         loading,
         signUp,
