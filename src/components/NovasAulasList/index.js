@@ -33,53 +33,14 @@ export default function NovasAulasList({ data }) {
           <Icon name="film" color="#000" size={20} />
           <TipoText>{data.tipo}</TipoText>
 
-          <TextInput
-            value={linkVideo}
-            onChangeText={(text) => {
-              setLinkVideo(text);
-              const aux = text.split('=');
-              setLinkcortado(aux[1]);
-            }}
+          <Imagem
+            source={require('../../assets/video.png')}
+            style={{ width: 370, height: 260 }}
+            resizeMode="contain"
           />
-
-          {data.url && (
-            <View style={{ width: 370, height: 260 }}>
-              <YoutubeVideo link={linkCortado} />
-            </View>
-          )}
-
-          {!data.url && (
-            <Imagem
-              source={require('../../assets/video.png')}
-              style={{ width: 370, height: 260 }}
-              resizeMode="contain"
-            />
-          )}
         </IconView>
         <AulaText>{data.valor}</AulaText>
         <Nome>Aulas Antigas</Nome>
-
-        <Grid>
-          <Col>
-            <RowCustom>
-              <Text>Vídeo 1</Text>
-            </RowCustom>
-            <RowCustom>
-              <Text>Vídeo 2</Text>
-            </RowCustom>
-          </Col>
-          <Col>
-            <RowCustom>
-              <Text>Vídeo3</Text>
-            </RowCustom>
-            <RowCustom>
-              <Text>Video4</Text>
-            </RowCustom>
-          </Col>
-        </Grid>
-        <LinkParaMaisAulas>
-          <TextoParaMaisAulas>Mais Aulas</TextoParaMaisAulas>
-        </LinkParaMaisAulas>
       </Tipo>
     </Container>
   );

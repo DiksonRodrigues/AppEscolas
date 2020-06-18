@@ -49,6 +49,11 @@ export default ({ navigation: { navigate, dispatch } }) => {
               </NavigatorText>
             </NavigatorItem>
             <NavigatorItem>
+              <NavigatorText onPress={() => navigateToScreen('Chamada')}>
+                Chamada
+              </NavigatorText>
+            </NavigatorItem>
+            <NavigatorItem>
               <NavigatorText onPress={() => navigateToScreen('Boletim')}>
                 Boletim
               </NavigatorText>
@@ -107,7 +112,7 @@ const UserNameText = styled.Text`
 const HeaderInternDrawerContainer = styled.View`
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 15px;
+  margin-top: 30px;
   margin-left: 15px;
   margin-bottom: 2px;
   width: 100%;
