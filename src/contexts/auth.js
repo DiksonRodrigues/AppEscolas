@@ -74,6 +74,15 @@ function AuthProvider({ children }) {
       .auth()
       .createUserWithEmailAndPassword(email, senha)
       .then(() => {
+        console.log(email);
+        console.log(senha);
+        console.log(nome);
+        console.log(nomeMae);
+        console.log(serie);
+        console.log(turno);
+        console.log(image);
+        console.log(teacher);
+
         const { uid } = firebase.auth().currentUser;
 
         // Isso é só para remover o file:// que aparece quando pega a url no image picker
@@ -83,11 +92,16 @@ function AuthProvider({ children }) {
         const mime = 'image/jpeg';
 
         // Aqui ele está criando a pasta alunos com a foto pegando o uid do usuário que está se cadastrando no momento
-        const avatar = firebase
-          .storage()
-          .ref()
-          .child('alunos')
-          .child(`${uid}.jpg`);
+        let avatar = null;
+        if (!teacher) {
+          avatar = firebase.storage().ref().child('alunos').child(`${uid}.jpg`);
+        } else {
+          avatar = firebase
+            .storage()
+            .ref()
+            .child('professores')
+            .child(`${uid}.jpg`);
+        }
 
         // Aqui como o nome já diz, ele pega o uri lê e transforma em base 64
         RNFetchBlob.fs
