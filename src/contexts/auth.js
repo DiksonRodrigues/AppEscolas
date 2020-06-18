@@ -140,31 +140,24 @@ function AuthProvider({ children }) {
                         storageUser(data);
                       });
                   } else {
-                    setHaveTeacher(teacher);
                     firebase
                       .database()
-                      .ref('users')
+                      .ref('teacher')
                       .child(uid)
                       .set({
                         nome,
-                        nomeMae,
-                        serie,
-                        turno,
                         avatar: url,
                       })
                       .then(() => {
                         const data = {
                           uid,
                           nome,
-                          email,
-                          nomeMae,
-                          serie,
-                          turno,
+                          telefone,
                           avatar: url,
                         };
                         setUser(data);
                         storageUser(data);
-                        setHaveTeacher(teacher);
+                        setHaveTeacher(true);
                       });
                   }
                 });

@@ -9,7 +9,6 @@ import AppRoutes from './app.routes';
 export default () => {
   const { signed, loading, haveTeacher } = useContext(AuthContext);
 
-  console.log(haveTeacher);
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
