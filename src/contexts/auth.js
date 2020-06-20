@@ -188,6 +188,27 @@ function AuthProvider({ children }) {
     });
   }
 
+  async function getPersonList() {
+    await firebase
+      .database()
+      .ref('profissoes')
+      .orderByChild('nomeProfissao')
+      .on('value', (snapshot) => {
+        let listaAlunos = [
+          { key: '0', nomeProfissao: 'Escolha uma profissão' },
+        ];
+
+        snapshot.forEach((chieldItem) => {
+          listaAlunos.push({
+            key: chieldItem.key,
+            nomeProfissao: chieldItem.val().nomeProfissao,
+          });
+        });
+
+        return listaAlunos;
+      });
+  }
+
   async function forgotPassword(email) {
     await firebase
       .auth()
@@ -209,6 +230,7 @@ function AuthProvider({ children }) {
         signUp,
         signIn,
         forgotPassword,
+        getPersonList,
         signOut,
       }}
     >
