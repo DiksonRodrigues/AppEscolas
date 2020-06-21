@@ -208,6 +208,7 @@ function AuthProvider({ children }) {
         snapshot.forEach((childItem) => {
           listaAlunos.push({
             key: childItem.key,
+            avatar: childItem.val().avatar,
             nome: childItem.val().nome,
           });
         });
