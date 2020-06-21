@@ -191,21 +191,27 @@ function AuthProvider({ children }) {
   async function getPersonList() {
     await firebase
       .database()
-      .ref('profissoes')
-      .orderByChild('nomeProfissao')
+      .ref('alunos')
+      .orderByChild('serie')
       .on('value', (snapshot) => {
-        let listaAlunos = [
-          { key: '0', nomeProfissao: 'Escolha uma profissão' },
-        ];
+        const alunos = [];
 
-        snapshot.forEach((chieldItem) => {
-          listaAlunos.push({
-            key: chieldItem.key,
-            nomeProfissao: chieldItem.val().nomeProfissao,
+        snapshot.forEach((childItem) => {
+          alunos.push({
+            key: childItem.key,
+            nome: childItem.val().nome,
+            nomeProfissao: childItem.val().nomeProfissao,
           });
         });
 
-        return listaAlunos;
+        if (alunos.length === 0) {
+          alunos.push({
+            key: '0',
+            nome: 'Não há alunos registrados',
+          });
+        }
+
+        return alunos;
       });
   }
 

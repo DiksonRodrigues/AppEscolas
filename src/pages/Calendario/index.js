@@ -7,7 +7,7 @@ export default function Calendario() {
   return (
     <View>
       <Header />
-      <Text>Calendário</Text>
+      <Text>Calendario</Text>
     </View>
   );
 }

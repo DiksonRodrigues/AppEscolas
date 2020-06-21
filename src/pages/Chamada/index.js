@@ -15,6 +15,7 @@ export default function Chamada() {
   return (
     <>
       <Header />
+      {console.log(date)}
       <Container>
         <FlatList data={date} />
       </Container>

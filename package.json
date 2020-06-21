@@ -21,6 +21,7 @@
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-animated-linear-gradient": "^1.2.2",
+    "react-native-calendars": "^1.299.0",
     "react-native-easy-grid": "^0.2.2",
     "react-native-elements": "^2.0.0",
     "react-native-gesture-handler": "^1.6.1",
