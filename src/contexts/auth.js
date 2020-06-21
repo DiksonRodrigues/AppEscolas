@@ -188,30 +188,40 @@ function AuthProvider({ children }) {
     });
   }
 
-  async function getPersonList() {
+  async function getPersonList(setDate) {
+    // Aqui ele espera o firebase responder
     await firebase
       .database()
       .ref('alunos')
       .orderByChild('serie')
       .on('value', (snapshot) => {
-        const alunos = [];
+        // A parte de cima é uma função de consulta do banco de dados
+
+        // Aqui eu crio um array
+        const listaAlunos = [];
+
+        /*
+         Essa é uma função que pega a resposta do firebase e o forEach procura
+         e pega os itens dentro da resposta
+        */
 
         snapshot.forEach((childItem) => {
-          alunos.push({
+          listaAlunos.push({
             key: childItem.key,
             nome: childItem.val().nome,
-            nomeProfissao: childItem.val().nomeProfissao,
           });
         });
 
-        if (alunos.length === 0) {
-          alunos.push({
+        // Aqui é um if de segurança só
+        if (listaAlunos.length === 0) {
+          listaAlunos.push({
             key: '0',
             nome: 'Não há alunos registrados',
           });
         }
 
-        return alunos;
+        // Aqui ele seta no date lá da tela Chamada a lista de alunos
+        setDate(listaAlunos);
       });
   }
 
