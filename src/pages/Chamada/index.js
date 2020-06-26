@@ -1,16 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Text, FlatList, View } from 'react-native';
-import styled from 'styled-components';
+import { FlatList } from 'react-native';
 import { AuthContext } from '~/contexts/auth';
 
-import ItemFlatList from './components/ItemFlatList';
-
 import Header from '../../components/Header';
+import ChamadaItem from '../../components/ChamadaItem';
 
 export default function Chamada() {
   const { getPersonList } = useContext(AuthContext);
-  const [desativadoPresente, setDesativadoPresente] = useState(false);
-  const [desativadoFaltou, setDesativadoFaltou] = useState(false);
   const [date, setDate] = useState([
     {
       key: '0',
@@ -37,21 +33,7 @@ export default function Chamada() {
       <Header />
       <FlatList
         data={date}
-        renderItem={({ item }) => (
-          <ItemFlatList
-            item={item}
-            desativadoPresente={desativadoPresente}
-            desativadoFaltou={desativadoFaltou}
-            onPressPresente={() => {
-              setDesativadoFaltou(false);
-              setDesativadoPresente(true);
-            }}
-            onPressFaltou={() => {
-              setDesativadoPresente(false);
-              setDesativadoFaltou(true);
-            }}
-          />
-        )}
+        renderItem={({ item }) => <ChamadaItem item={item} />}
       />
     </>
   );

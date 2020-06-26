@@ -193,6 +193,7 @@ function AuthProvider({ children }) {
     await firebase
       .database()
       .ref('alunos')
+      .child('serie')
       .orderByChild('serie')
       .on('value', (snapshot) => {
         // A parte de cima é uma função de consulta do banco de dados
@@ -206,9 +207,11 @@ function AuthProvider({ children }) {
         */
 
         snapshot.forEach((childItem) => {
+          console.log(childItem);
+
           listaAlunos.push({
             key: childItem.key,
-            avatar: childItem.val().avatar,
+            avatar: childItem.val().serie,
             nome: childItem.val().nome,
           });
         });
